@@ -1,7 +1,7 @@
 /*
- *= require_self
  *= require bootstrap.min
  *= require_tree .
+ *= require_self
  */
 
 .inline-block { display: inline-block; }
