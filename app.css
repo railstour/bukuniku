@@ -1,0 +1,17 @@
+.inline-block { display: inline-block; }
+.center-text { text-align: center; }
+.number-field { max-width: 44px; }
+.book-preview { display: inline-block; }
+
+.thumbnail-description {
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: justify;
+}
+
+.thumbnail-image {
+  height: 185px;
+  text-align: center;
+}
+
+
