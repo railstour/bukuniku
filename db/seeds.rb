@@ -21,7 +21,7 @@ Book.create(
   title: 'Sherlock Holmes A Collectors Edition',
   author: 'Sir Arthur Conan Doyle',
   summary: 'Buku ini merupakan kumpulan dari 4 buku petualangan terbaik Sherlock Holmes, berisi 48 kisah misterius yang akan memuaskan para Sherlockian',
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51HWaRzG42L._SS100_.jpg',
+  image: 'https://images-na.ssl-images-amazon.com/images/I/51HWaRzG42L.jpg',
   price: 169_150,
   quantity: 50
 )
