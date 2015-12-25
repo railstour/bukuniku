@@ -1,4 +1,4 @@
-<div class="col-sm-4">
+<!-- <div class="col-sm-4">
     <div class="thumbnail item-card">
        <div class="caption thumbnail-header">
           <h4>Sherlock Holmes</h4>
@@ -14,5 +14,25 @@
             yang akan memuaskan para Sherlockian
           </p>
        </div>
-    </div> <!-- thumbnail -->
- </div> <!-- col per thumbnail -->
+    </div>
+ </div> -->
+
+
+ <% @books.each do |book| %>
+   <div class='col-sm-4'>
+     <div class='thumbnail item-card'>
+       <div class='caption thumbnail-header'>
+         <h4><%= book.title %></h4>
+         <h5><%= money_amount(book.price) %></h5>
+       </div>
+       <div class='thumbnail-image'>
+         <%= image_tag book.image,width: 150, height: 180 %>
+       </div>
+       <div class='caption thumbnail-description'>
+         <p>
+           <%= short_summary(book.summary,100, '#') %>
+         </p>
+       </div>
+     </div>
+   </div>
+ <% end %>
