@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     unlocks: 'users/unlocks'
   }
+
+  resources :books, only: [:show]
 end
