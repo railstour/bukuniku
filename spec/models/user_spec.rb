@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe User do
+  let(:user) { User.new }
+
   it 'capitalizes name' do
-    user = User.new
     user.name = 'wendy kurniawan'
     user.email = 'wendy.kurniawan@example.com'
     user.password = 'Password123'
@@ -13,7 +14,6 @@ describe User do
   end
 
   it 'has password' do
-    user = User.new
     user.name = 'wendy kurniawan'
     user.email = 'wendy.kurniawan@example.com'
     user.save
@@ -22,7 +22,6 @@ describe User do
   end
 
   it 'has name' do
-    user = User.new
     user.name = ''
     user.password = 'Password123'
     user.save
