@@ -13,6 +13,7 @@ gem 'devise'
 
 group :development, :test do
   gem 'byebug'
+  gem 'mailcatcher' # simulasi smtp email
 end
 
 group :development do
