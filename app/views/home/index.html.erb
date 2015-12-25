@@ -2,7 +2,9 @@
    <div class='col-sm-4'>
      <div class='thumbnail item-card'>
        <div class='caption thumbnail-header'>
-         <h4><%= book.title %></h4>
+         <h4>
+           <%= link_to book.title, book_path(book) %>
+        </h4>
          <h5><%= money_amount(book.price) %></h5>
        </div>
        <div class='thumbnail-image'>
@@ -10,7 +12,7 @@
        </div>
        <div class='caption thumbnail-description'>
          <p>
-           <%= short_summary(book.summary,100, '#') %>
+           <%= short_summary(book.summary,100, book_path(book)) %>
          </p>
        </div>
      </div>
