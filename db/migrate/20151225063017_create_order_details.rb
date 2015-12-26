@@ -4,6 +4,7 @@ class CreateOrderDetails < ActiveRecord::Migration
       t.references :book, index: true, foreign_key: true
       t.references :order, index: true, foreign_key: true
       t.integer :quantity
+      t.integer :unit_price
       t.datetime :created_at
       t.datetime :updated_at
     end
