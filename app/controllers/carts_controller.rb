@@ -21,6 +21,13 @@ class CartsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    @cart = Order.find_by(id: session[:cart_id], status: 'shopping')
+    if @cart.order_details.blank?
+      flash[:alert] = 'Cart is Empty'
+    end
+  end
+
   private
   def is_number_and_greater_than_zero?(quantity)
     begin
