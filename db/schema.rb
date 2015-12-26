@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151225063017) do
     t.integer  "book_id"
     t.integer  "order_id"
     t.integer  "quantity"
+    t.integer  "unit_price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
