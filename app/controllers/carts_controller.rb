@@ -23,6 +23,9 @@ class CartsController < ApplicationController
 
   def index
     @cart = Order.find_by(id: session[:cart_id], status: 'shopping')
+    if @cart.order_details.blank?
+      flash[:alert] = 'Cart is Empty'
+    end
   end
 
   private
