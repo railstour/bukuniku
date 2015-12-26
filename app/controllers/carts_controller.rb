@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class CartsController < ApplicationController
   def create
     cart = Order.find_order(session[:cart_id])
     session[:cart_id] = cart.id
