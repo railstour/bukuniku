@@ -23,7 +23,7 @@
           <%= money_amount(@book.price) %>
         </span>
         <div class='add-to-cart'>
-          <%= form_for @order_detail, url: orders_path do |f| %>
+          <%= form_for @order_detail, url: carts_path do |f| %>
            <%= f.hidden_field :book_id, value: @book.id %>
            <%= f.number_field :quantity, step: 1 %>
            <div class='btn-group'>
