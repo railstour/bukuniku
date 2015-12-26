@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   }
 
   resources :books, only: [:show]
-  resources :orders, only: [:create]
+  resources :carts, only: [:create]
 end
