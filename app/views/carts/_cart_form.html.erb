@@ -1,0 +1,4 @@
+<%= form_for cart_detail, url: cart_details_path(id: cart_detail.id) do |f| %>
+  <%= f.number_field :quantity, step: 1, min: 1, class: 'number-field' %>
+  <%= f.submit 'update',  class: 'btn btn-warning btn-sm' %>
+<% end %>

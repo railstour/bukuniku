@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   }
 
   resources :books, only: [:show]
-  resources :carts, only: [:create]
+  resources :carts, only: [:create, :index]
+  resource :cart_details, only: [:update]
 end

@@ -23,9 +23,8 @@
 
          <ul class='nav navbar-nav navbar-right'>
             <li>
-               <a href='#'>
-                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
-               </a>
+              <% cart_symbol = '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>' %>
+               <%= link_to "#{cart_symbol} Cart".html_safe, carts_path, class: 'nav-link'%>
             </li>
             <%= render "layouts/navbar_user_menu" %>
          </ul>
