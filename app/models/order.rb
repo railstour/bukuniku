@@ -4,6 +4,11 @@ class Order < ActiveRecord::Base
 
   validates_inclusion_of :status, in: ['shopping']
 
+  before_save :set_total_price
+
+  def set_total_price
+    self.total_price = order_details.sum('unit_price * quantity')
+  end
 
   def self.find_order(id)
     if id.present?
