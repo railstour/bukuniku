@@ -21,3 +21,6 @@
   text-align: justify;
   line-height: 1.5;
 }
+.book-detail .book-price .add-to-cart {
+  margin-top: 20px;
+}
