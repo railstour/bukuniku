@@ -24,6 +24,9 @@
           <div class="inline-block">
             <%= render 'cart_form', cart_detail: cart_detail %>
           </div>
+          <div class= "inline-block">
+            <%= link_to 'delete', cart_details_path(id: cart_detail), method: :delete, data:{ confirm: 'are you sure?' }, class: 'btn btn-danger btn-sm', role: 'button' %>
+          </div>
         </td>
       </tr>
     <% end %>
