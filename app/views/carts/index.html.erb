@@ -1,50 +1,7 @@
 <div class="col-sm-12">
-  <% if @cart.order_details.present? %>
-    <table class="table table-hover table-stripped table-responsive">
-      <thead>
-        <tr>
-          <td colspan='2'>Buku</td>
-          <td>Harga Satuan</td>
-          <td>Kuantitas</td>
-        </tr>
-      </thead>
-      <% @cart.order_details.each do |cart_detail| %>
-        <tr>
-          <td>
-            <%= image_tag cart_detail.book.image, width: 100, height: 130 %>
-          </td>
-          <td>
-            <%= cart_detail.book.title %>
-          </td>
-
-          <td>
-            <%= money_amount(cart_detail.unit_price) %>
-          </td>
-
-          <td>
-            <div class="inline-block">
-              <%= render 'cart_form', cart_detail: cart_detail %>
-            </div>
-            <div class= "inline-block">
-              <%= link_to 'delete', cart_details_path(id: cart_detail), method: :delete, data:{ confirm: 'are you sure?' }, class: 'btn btn-danger btn-sm', role: 'button' %>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-      <tfoot>
-        <tr>
-          <td colspan='2'></td>
-          <td class='order-total'>Total</td>
-          <td class='order-total'><%= money_amount(@cart.total_price) %></td>
-        </tr>
-      </tfoot>
-    </table>
+  <% if @cart&.order_details&.present? %>
+    <%= render 'cart_table' %>
   <% else %>
-    <div class="page-header">
-      <h2>Shopping Cart Is Empty</h2>
-    </div>
-    <div>
-      You have no items in your shopping cart
-    </div>
+    <%= render 'no_cart' %>
   <% end %>
 </div>
