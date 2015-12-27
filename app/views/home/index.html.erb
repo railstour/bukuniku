@@ -1,27 +1,29 @@
- <% @books.each do |book| %>
-   <div class='col-sm-4'>
-     <div class='thumbnail item-card'>
-       <div class='caption thumbnail-header'>
-         <h4>
-           <%= link_to book.title, book_path(book) %>
-        </h4>
-         <h5><%= money_amount(book.price) %></h5>
-       </div>
-       <div class='thumbnail-image'>
-         <%= image_tag book.image,width: 150, height: 180 %>
-       </div>
-       <div class='caption thumbnail-description'>
-         <p>
-           <%= short_summary(book.summary,100, book_path(book)) %>
-           <%= form_for @order_detail, url: carts_path do |f| %>
-            <%= f.hidden_field :book_id, value: book.id %>
-            <%= f.number_field :quantity, step: 1 %>
-            <div class='btn-group'>
-              <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
-            </div>
-          <% end %>
-         </p>
+<div class='book-deck'>
+   <% @books.each do |book| %>
+     <div class='book center-text'>
+       <div class='thumbnail item-card'>
+         <div class='caption thumbnail-header'>
+           <h4>
+             <%= link_to book.title, book_path(book) %>
+          </h4>
+           <h5><%= money_amount(book.price) %></h5>
+         </div>
+         <div class='thumbnail-image'>
+           <%= image_tag book.image,width: 150, height: 180 %>
+         </div>
+         <div class='caption thumbnail-description'>
+           <p>
+             <%= short_summary(book.summary,100, book_path(book)) %>
+             <%= form_for @order_detail, url: carts_path do |f| %>
+               <%= f.hidden_field :book_id, value: book.id %>
+               <%= f.number_field :quantity, step: 1 %>
+               <div class='btn-group'>
+                 <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+               </div>
+              <% end %>
+           </p>
+         </div>
        </div>
      </div>
-   </div>
- <% end %>
+   <% end %>
+ </div>

@@ -1,0 +1,36 @@
+.book-preview { display: inline-block; }
+
+.item-card {
+  padding: 0px;
+}
+
+.item-card .thumbnail-header {
+  border-bottom: 1px solid #ccc;
+  background: #fafafa;
+  margin-bottom: 20px;
+  text-align: center;
+  height: 100px;
+}
+
+.item-card .thumbnail-description {
+  padding: 15px;
+  margin-top: 10px;
+  text-align: justify;
+  height: 160px;
+}
+
+.item-card .thumbnail-image {
+  height: 185px;
+  text-align: center;
+}
+
+.book-deck {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+}
+
+.book-deck .book {
+  flex: 0 1 34.5rem;
+  margin: 0 13px 8px;
+}
