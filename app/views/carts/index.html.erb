@@ -1,0 +1,7 @@
+<div class="col-sm-12">
+  <% if @cart.order_details.present? %>
+    <%= render 'cart_table' %>
+  <% else %>
+    <%= render 'no_cart' %>
+  <% end %>
+</div>

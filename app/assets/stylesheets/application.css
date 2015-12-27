@@ -1,0 +1,9 @@
+/*
+ *= require bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+.inline-block { display: inline-block; }
+.center-text { text-align: center; }
+.number-field { max-width: 44px; }

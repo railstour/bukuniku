@@ -1,0 +1,26 @@
+.book-detail .book-header .title {
+  font-size: 30px;
+}
+.book-detail .book-header .author {
+  font-size: 17px;
+}
+
+.book-detail{
+  margin-top: 40px;
+}
+
+.book-detail .book-price .stock {
+  font-size: 17px;
+}
+.book-detail .book-price .price {
+  font-size: 24px;
+  color: #6f5499;
+}
+.book-detail .book-summary {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.5;
+}
+.book-detail .book-price .add-to-cart {
+  margin-top: 20px;
+}
