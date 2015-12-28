@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'review/create'
-
   root to: 'home#index'
 
   devise_for :users, controllers: {
@@ -15,4 +13,5 @@ Rails.application.routes.draw do
   resources :books, only: [:show]
   resources :carts, only: [:create, :index]
   resource :cart_details, only: [:update, :destroy]
+  resource :reviews, only: [:create]
 end
