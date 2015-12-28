@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'review/create'
+
   root to: 'home#index'
 
   devise_for :users, controllers: {
