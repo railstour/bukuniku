@@ -18,7 +18,7 @@ User.create(
   password: 'Password01'
 )
 
-Book.create(
+sherlock = Book.create(
   title: 'Sherlock Holmes A Collectors Edition',
   author: 'Sir Arthur Conan Doyle',
   summary: 'Buku ini merupakan kumpulan dari 4 buku petualangan terbaik ' +
@@ -134,3 +134,32 @@ Book.create(
   price: 58_650,
   quantity: 32
 )
+
+# create reviews
+
+{
+  "Ardian Wisnu" => "Buku ini bagus dan mudah untuk dibaca",
+  "Yesika" => "Anak saya suka buku ini, tentang teka-tekinya, menarik juga " +
+    "untuk dibaca orang dewasa",
+  "Eko" => "Buku ini adalah buku detektif favorit saya, wajib dibeli bagi " +
+    "pencinta buku-buku detektif, terlebih penggemar sosok Sherlock Holmes",
+  "Rianti" => "Ok sih. Gak ngrasa, waktu bagaikan terbang waktu baca buku ini!",
+  "Dewanto Iswara" => "Gak ada buku detektif-detektifan yang lebih bagus!",
+  "Indra" => "Bukunya cepet sampai! Thanks Bukuniku! Buku ini menarik banget!"
+}.each do |author, comment|
+  user = User.new(
+    name: author,
+    email: author.split.join("_") + "@example.com",
+    password: 'Password01'
+  )
+  user.save!
+
+  star = (3..4).to_a.sample
+
+  review = Review.create(
+    reviewer: user,
+    book: sherlock,
+    star: star,
+    text: comment
+  )
+end
