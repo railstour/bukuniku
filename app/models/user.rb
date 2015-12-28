@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :written_reviews, foreign_key: :reviewer_id
+
   validates_presence_of :name
   before_save :capitalize_name
 
