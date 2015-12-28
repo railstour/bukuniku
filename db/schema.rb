@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225063017) do
+ActiveRecord::Schema.define(version: 20151227232123) do
 
   create_table "books", force: :cascade do |t|
     t.string  "title"
@@ -41,9 +41,35 @@ ActiveRecord::Schema.define(version: 20151225063017) do
     t.datetime "updated_at"
   end
 
+  create_table "review_votes", force: :cascade do |t|
+    t.integer  "book_id",    null: false
+    t.integer  "review_id",  null: false
+    t.integer  "voter_id",   null: false
+    t.string   "vote",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "review_votes", ["book_id"], name: "index_review_votes_on_book_id"
+  add_index "review_votes", ["review_id"], name: "index_review_votes_on_review_id"
+  add_index "review_votes", ["voter_id"], name: "index_review_votes_on_voter_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "book_id",     null: false
+    t.integer  "reviewer_id", null: false
+    t.decimal  "star",        null: false
+    t.text     "text",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
+  add_index "reviews", ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                                null: false
     t.string   "address"
+    t.string   "phone"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
