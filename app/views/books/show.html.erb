@@ -37,5 +37,11 @@
         <%= @book.summary %>
       </div>
     </div>
+
+    <section id='book-reviews'>
+      <h3>Resensi dan Komentar</h3>
+      <%= render 'review/form', book: @book %>
+      <%= render 'review/reviews', reviews: @book.reviews %>
+    </section> <!-- book-reviews -->
   </div>
 </div>
