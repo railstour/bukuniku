@@ -41,7 +41,12 @@
     <section id='book-reviews'>
       <h3>Resensi dan Komentar</h3>
       <%= render 'review/form', book: @book %>
-      <%= render 'review/reviews', reviews: @book.reviews %>
+
+      <% if @book.reviews.exists? %>
+        <%= render 'review/reviews', reviews: @book.reviews %>
+      <% else %>
+        <p>Belum ada review yang tertulis</p>
+      <% end %>
     </section> <!-- book-reviews -->
   </div>
 </div>

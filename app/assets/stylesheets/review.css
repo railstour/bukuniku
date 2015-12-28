@@ -1,5 +1,4 @@
 .reviews {
-  margin-top: 30px;
   list-style: none;
   padding: 0;
 }
@@ -16,4 +15,27 @@
 
 .review-star {
   float: right;
+}
+
+.review-form {
+  margin-bottom: 40px;
+}
+
+.review-form textarea {
+  margin-top: 20px;
+}
+
+.review-form input[type='submit'] {
+  margin: 10px 0px;
+  float: right;
+}
+
+/* clear floating for the submit button on review form */
+.review-form input[type='submit']:after {
+  display: table; content: ' ';
+}
+
+/* clear floating for the submit button on review form */
+.review-form input[type='submit']:before {
+  clear: both;
 }
