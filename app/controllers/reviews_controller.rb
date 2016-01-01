@@ -4,13 +4,14 @@ class ReviewsController < ApplicationController
   def create
     text = params[:review][:text]
     book_id = params[:review][:book_id]
+    rating = params[:review][:star]
     book = Book.find(book_id)
 
     review = Review.new(
       text: text,
       book: book,
       reviewer: current_user,
-      star: 5,
+      star: rating,
     )
 
     review.save!

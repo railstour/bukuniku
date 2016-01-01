@@ -2,12 +2,12 @@ $(document).ready(function() {
   if ($(".book-detail #book-reviews").length > 0) {
     // create the rating widget
     $(".book-rating-widget .rate-stars").rateYo({
-      rating: 1.5,
+      rating: 3.0,
       numStars: 5,
       halfStar: true,
       minValue: 0,
       maxValue: 5,
-      starWidth: "16px",
+      starWidth: "21px",
       spacing: "5px"
     }).on("rateyo.set", function(e, data){
       rating = data.rating
@@ -23,6 +23,18 @@ $(document).ready(function() {
       evt.preventDefault()
       $(".book-rating-widget").css("display", "block")
       $(".book-review-widget").css("display", "none")
+    })
+
+    // change book review's rating represented by text, to rating
+    // represented by star
+    $(".review-head .review-star").each(function(i, elem){
+      rating = $(elem).data("rating")
+      $(elem).rateYo({
+        rating: rating,
+        starWidth: "14px",
+        spacing: "2px",
+        readOnly: true
+      })
     })
   }
 })

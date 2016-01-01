@@ -3,7 +3,7 @@
     <% next unless review.persisted? %>
       <li class='review-head'>
         <span class='review-reviewer'><%= review.reviewer.name %></span>
-        <span class='review-star'><%= review.star %></span>
+        <span class='review-star' data-rating='<%= review.star %>'></span>
       </li>
       <li class='review-content'>
         <%= simple_format review.text %>
