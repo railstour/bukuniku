@@ -2,6 +2,7 @@
  *= require bootstrap.min
  *= require_tree .
  *= require_self
+ *= require jquery.rateyo.min.css
  */
 
 .inline-block { display: inline-block; }
