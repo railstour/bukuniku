@@ -1,7 +1,7 @@
 $(document).ready(function() {
   if ($(".book-detail #book-reviews").length > 0) {
     // create the rating widget
-    $(".book-rating-widget").rateYo({
+    $(".book-rating-widget .rate-stars").rateYo({
       rating: 1.5,
       numStars: 5,
       halfStar: true,
