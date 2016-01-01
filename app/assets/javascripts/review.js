@@ -10,6 +10,10 @@ $(document).ready(function() {
       starWidth: "16px",
       spacing: "5px"
     }).on("rateyo.set", function(e, data){
+      rating = data.rating
+      $("input[type='hidden']#review_star").val(rating)
+      $(".review-form").submit()
+
       $(".book-rating-widget").css("display", "none")
       $(".book-review-widget").css("display", "block")
     })
