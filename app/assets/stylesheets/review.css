@@ -39,3 +39,8 @@
 .review-form input[type='submit']:before {
   clear: both;
 }
+
+/* rating widget is not displayed until user write comment and click submit */
+.review-form .book-rating-widget {
+  display: none;
+}
