@@ -43,4 +43,10 @@
 /* rating widget is not displayed until user write comment and click submit */
 .review-form .book-rating-widget {
   display: none;
+  border: 1px dotted gray;
+  background: #f9f9f9;
+  padding: 10px 0px;
 }
+
+.book-rating-widget p { text-align: center; margin-bottom: 0px; }
+.book-rating-widget .rate-stars { margin: 5px auto; }
