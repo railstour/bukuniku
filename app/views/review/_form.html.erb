@@ -2,6 +2,9 @@
   <%= f.text_area :text, placeholder: "Katakan opini anda tentang buku ini",
     class: "form-control" %>
   <%= f.hidden_field :book_id %>
+  <%= f.hidden_field :star %>
+  <div class='book-rating-widget'>
+  </div>
   <%= f.submit "Kirim review", class: 'btn btn-default' %>
   <div class='clearfix'></div>
 <% end %>
