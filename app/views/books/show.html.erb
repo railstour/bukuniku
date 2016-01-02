@@ -43,7 +43,10 @@
       <%= render 'review/form', book: @book %>
 
       <% if @book.reviews.exists? %>
-        <%= render 'review/reviews', reviews: @book.reviews %>
+        <%= render 'review/reviews', reviews:
+          @book.reviews.mine(current_user) %>
+        <%= render 'review/reviews', reviews:
+          @book.reviews.not_mine(current_user) %>
       <% else %>
         <p>Belum ada review yang tertulis</p>
       <% end %>
