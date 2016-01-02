@@ -7,15 +7,24 @@ class ReviewsController < ApplicationController
     rating = params[:review][:star]
     book = Book.find(book_id)
 
-    review = Review.new(
-      text: text,
-      book: book,
-      reviewer: current_user,
-      star: rating,
+    review = Review.find_by(
+      book_id: book.id,
+      reviewer_id: current_user
     )
 
-    review.save!
-    redirect_to book, notice: "Review has been posted"
+    if review.present?
+      redirect_to book, alert: "You have reviewed this book"
+    else
+      review = Review.new(
+        text: text,
+        book: book,
+        reviewer: current_user,
+        star: rating,
+      )
+
+      review.save!
+      redirect_to book, notice: "Review has been posted"
+    end
   rescue => e
     redirect_to book, alert: "Unable to post your review"
   end
