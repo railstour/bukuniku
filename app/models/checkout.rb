@@ -6,6 +6,8 @@ class Checkout < Order
   alias_attribute :checkout_id, :co_id
   alias_attribute :checkout_time, :co_time
   alias_attribute :checkout_amount, :co_amount
+
+  has_many :tariffs, class_name: Tariff
   
   validates_presence_of :billing_address, :recipient_address
   validates_presence_of :billing_phone, :recipient_phone
