@@ -14,6 +14,7 @@ group :development, :test do
   gem 'byebug'
   gem 'mailcatcher' # simulasi smtp email
   gem 'rspec-rails', '~> 3.3'
+  gem 'pry', require: false
 end
 
 group :development do
