@@ -1,0 +1,28 @@
+<h3>Billing summary</h3>
+<table class='table table-hover table-stripped table-responsive'>
+  <thead>
+    <tr>
+      <td class='spaceless desc-col'>Description</td>
+      <td class='spaceless content-col'>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Subtotal</td>
+      <td class='content-col'><%= money_amount cart.total_price %>
+    </tr>
+    <tr>
+      <td>Shipping</td>
+      <td class='content-col'><%= money_amount(cart.tariffs
+        .fee_type(Tariff::SHIPPING_FEE).first) || "-" %></td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td class='content-col'><%= money_amount(cart.tariffs
+        .fee_type(Tariff::TAX).first) || "-" %></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td class='content-col'><%= money_amount(cart.total_price_with_tariffs) %>
+  </tbody>
+</table> <!-- order summary table -->

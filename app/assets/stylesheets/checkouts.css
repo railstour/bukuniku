@@ -40,3 +40,25 @@
   position: static;
   background: #f6f6f6;
 }
+
+/* this css in between is specific for _checkouted_items partial */
+#checkouted-items .order-summary {
+  margin: 30px 0px;
+}
+
+#checkouted-items .order-summary h3 {
+  font-size: 1.2em;
+  border-bottom: 1px dotted gray;
+}
+
+#checkouted-items .order-summary table td {
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#checkouted-items .order-summary table td.content-col {
+  width: 70%;
+  text-align: right;
+}
+/* the css above is specific for _checkouted_items partial */
