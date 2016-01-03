@@ -22,7 +22,10 @@ class CartsController < ApplicationController
   end
 
   def index
-    @cart = Order.find_by(id: session[:cart_id], status: 'shopping')
+    @cart = Order.find_by(
+      id: session[:cart_id], 
+      status: Order::STATUS_SHOPPING
+    )
   end
 
   private
