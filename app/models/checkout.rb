@@ -18,6 +18,10 @@ class Checkout < Order
   after_save :calculate_shipping_fee
   after_save :calculate_tax_fee
 
+  def total_price_with_tariffs
+    (tariffs.all.sum(:gross_amount) / 100) + total_price
+  end
+
   private
 
   def assign_checkout_time
