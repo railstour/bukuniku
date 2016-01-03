@@ -1,1 +1,31 @@
 <h2>CHECKOUTED ITEMS</h2>
+
+<table class="table table-hover table-stripped table-responsive">
+  <thead>
+    <tr>
+      <td colspan='2'>Buku</td>
+      <td>Kuantitas</td>
+    </tr>
+  </thead>
+  <% for order_detail in cart.order_details %>
+    <% item = order_detail.book %>
+    <tr>
+      <td>
+        <%= image_tag item.image, width: 100, height: 130 %>
+      </td>
+
+      <td>
+        <p><%= item.title %></p>
+        <p><%= money_amount(order_detail.unit_price) %></p>
+      </td>
+
+      <td>
+        <%= order_detail.quantity %>
+        <br/><br/>
+        <%= link_to 'delete', cart_details_path(id: order_detail),
+          method: :delete, data:{ confirm: 'are you sure?' },
+          class: 'btn btn-danger btn-sm', role: 'button' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
