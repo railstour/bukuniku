@@ -1,6 +1,9 @@
 <div class="col-sm-12">
   <% if @cart&.order_details&.present? %>
     <%= render 'cart_table' %>
+
+    <br/><br/><br/>
+    <%= link_to "Checkout now", new_checkout_path, class: "btn btn-primary" %>
   <% else %>
     <%= render 'no_cart' %>
   <% end %>
