@@ -1,2 +1,17 @@
-<h1>Checkouts#new</h1>
-<p>Find me in app/views/checkouts/new.html.erb</p>
+<div class='container-fluid checkout-container'>
+  <div class='row fill'>
+    <div class='checkout-container-wrapper'>
+      <section id='checkout-form-container' class='col-sm-7'>
+        <%= render 'checkout_form_container' %>
+      </section>
+
+      <aside id='checkouted-items' class='col-sm-5'>
+        <%= render 'checkouted_items' %>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<style type='text/css'>
+  html, body { height: 100%; }
+</style>
