@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227232123) do
+ActiveRecord::Schema.define(version: 20160103022521) do
 
   create_table "books", force: :cascade do |t|
     t.string  "title"
@@ -39,6 +39,27 @@ ActiveRecord::Schema.define(version: 20151227232123) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recipient_first_name"
+    t.string   "recipient_last_name"
+    t.string   "recipient_company"
+    t.text     "recipient_address"
+    t.string   "recipient_city"
+    t.string   "recipient_postcode"
+    t.string   "recipient_country"
+    t.string   "recipient_province"
+    t.string   "recipient_phone"
+    t.string   "recipient_email"
+    t.string   "billing_first_name"
+    t.string   "billing_last_name"
+    t.text     "billing_address"
+    t.string   "billing_phone"
+    t.string   "billing_email"
+    t.text     "special_note"
+    t.string   "co_gateway"
+    t.string   "co_channel"
+    t.string   "co_id"
+    t.datetime "co_time"
+    t.integer  "co_amount"
   end
 
   create_table "review_votes", force: :cascade do |t|
@@ -55,12 +76,13 @@ ActiveRecord::Schema.define(version: 20151227232123) do
   add_index "review_votes", ["voter_id"], name: "index_review_votes_on_voter_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "book_id",     null: false
-    t.integer  "reviewer_id", null: false
-    t.decimal  "star",        null: false
-    t.text     "text",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "book_id",           null: false
+    t.integer  "reviewer_id",       null: false
+    t.decimal  "star",              null: false
+    t.text     "text",              null: false
+    t.integer  "replied_review_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
