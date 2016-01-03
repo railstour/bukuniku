@@ -8,3 +8,16 @@
 .inline-block { display: inline-block; }
 .center-text { text-align: center; }
 .number-field { max-width: 44px; }
+
+/* cool name for 'hidden' voluntarily */
+.spaceless {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip: rect(0 0 0 0);
+  width: 2px;
+  height: 2px;
+  margin: -2px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute
+}
