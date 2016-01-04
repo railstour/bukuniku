@@ -9,12 +9,14 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'dotenv'
 
 group :development, :test do
   gem 'byebug'
   gem 'mailcatcher' # simulasi smtp email
   gem 'rspec-rails', '~> 3.3'
   gem 'pry', require: false
+  gem 'foreman', require: false # for starting server with .env loaded
 end
 
 group :development do
