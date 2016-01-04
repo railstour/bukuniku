@@ -21,3 +21,17 @@
   padding: 0;
   position: absolute
 }
+
+.form-frame {
+  margin-bottom: 15px;
+}
+
+.form-frame h3 {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-bottom: 1.15em;
+}
+
+.form-group label {
+  font-weight: normal;
+}

@@ -39,26 +39,45 @@
 #checkouted-items {
   position: static;
   background: #f6f6f6;
+  display: none;
 }
 
 /* this css in between is specific for _checkouted_items partial */
-#checkouted-items .order-summary {
+#checkouted-items .billing-summary {
   margin: 30px 0px;
 }
 
-#checkouted-items .order-summary h3 {
+#checkouted-items .billing-summary h3 {
   font-size: 1.2em;
   border-bottom: 1px dotted gray;
 }
 
-#checkouted-items .order-summary table td {
+#checkouted-items .billing-summary table td {
   border: none;
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#checkouted-items .order-summary table td.content-col {
+#checkouted-items .billing-summary table td.content-col {
   width: 70%;
   text-align: right;
 }
+
+@media (min-width: 768px) {
+  #checkouted-items { display: block; }
+}
+
 /* the css above is specific for _checkouted_items partial */
+
+/* this css in between is specific for _checkout_form_container partial */
+#checkout-form-container .back-cart-link {
+  font-size: 1.2em;
+  font-weight: normal;
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#checkout-form-container form .form-group {
+  margin-bottom: 6px;
+}
+/* the css above is specific for _checkout_form_container partial */
