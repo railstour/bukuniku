@@ -1,6 +1,6 @@
 class CheckoutsController < ApplicationController
   def new
-    @cart = Order.where(id: session[:cart_id]).first
+    @cart = Checkout.where(id: session[:cart_id]).first
 
     if @cart
       render layout: 'plain'
