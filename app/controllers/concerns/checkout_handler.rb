@@ -18,4 +18,12 @@ module CheckoutHandler
     when KEY_PROD_ENVIRONMENT then ENV["VT_PROD_SERVER_KEY"]
     end
   end
+
+  def use_vtweb?
+    true
+  end
+
+  def use_vtdirect?
+    !use_vtweb?
+  end
 end
