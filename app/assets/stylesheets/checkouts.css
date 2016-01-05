@@ -77,7 +77,42 @@
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+@media(min-width: 992px) {
+  #checkout-form-container .form-frame .row .col-md-4
+  {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  #checkout-form-container .form-frame .row .col-md-6:first-child,
+  #checkout-form-container .form-frame .row .col-md-4:first-child
+  {
+    padding-left: 15px;
+    padding-right: 3px;
+  }
+
+  #checkout-form-container .form-frame .row .col-md-6:last-child, 
+  #checkout-form-container .form-frame .row .col-md-4:last-child
+  {
+    padding-left: 3px;
+    padding-right: 15px;
+  }
+}
+
 #checkout-form-container form .form-group {
   margin-bottom: 6px;
 }
+
+/* fix the positioning of card icon for CC field */
+#checkout-form-container .payment-form-frame .credit-card-field
+.card-type-icon.show {
+  top: -28px;
+  margin-bottom: -28px;
+  right: 7px;
+  float: right;
+  display: inline-block !important; /* override bootstrap show rule */
+  position: relative;
+}
+
 /* the css above is specific for _checkout_form_container partial */
