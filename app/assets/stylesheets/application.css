@@ -3,6 +3,7 @@
  *= require_tree .
  *= require_self
  *= require jquery.rateyo.min.css
+ *= require credit_card_field
  */
 
 .inline-block { display: inline-block; }

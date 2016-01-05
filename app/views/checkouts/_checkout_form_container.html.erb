@@ -87,4 +87,35 @@
         placeholder: "Catatan tambahan" %>
     </div>
   </section>
+
+  <section class='form-frame payment-form-frame'>
+    <h3>Pembayaran</h3>
+    <fieldset class="form-group">
+      <%= hidden_field_tag "direct[credit_card][token_id]", "", id: "cc_token_id" %>
+  		<%= text_field_tag "direct[credit_card]",
+        "", id: "cc_card_number", class: "form-control",
+        placeholder: "Nomor kartu kredit" %>
+	  </fieldset>
+    <div class='clearfix'></div>
+
+    <div class="row">
+      <fieldset class="form-group">
+        <div class="col-md-4">
+          <%= text_field_tag "direct[cc][expmonth]",
+            "", id: "cc_card_exp_month", class: "form-control",
+            placeholder: "Expiry Month (MM)", maxlength: 2 %>
+        </div>
+        <div class="col-md-4">
+          <%= text_field_tag "direct[cc][expyear]",
+            "", id: "cc_card_exp_year", class: "form-control",
+            placeholder: "Expiry Year (YYYY)", maxlength: 4 %>
+        </div>
+        <div class='col-md-4'>
+          <%= text_field_tag "direct[cc][cvv]", "",
+            id: "cc_card_cvv", class: "form-control",
+            placeholder: "CVV", maxlength: 3 %>
+        </div>
+      </fieldset>
+    </div>
+  </section>
 <% end %>
