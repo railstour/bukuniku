@@ -21,7 +21,7 @@ module ChargingConcern
   private
 
   def assign_checkout_time
-    if checkout_time.blank? && status == WAITING_PAYMENT
+    if checkout_time.blank? && status == Checkout::WAITING_PAYMENT
       self.checkout_time = DateTime.now 
     end
   end
