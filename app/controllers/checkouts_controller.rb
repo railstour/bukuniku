@@ -1,4 +1,6 @@
 class CheckoutsController < ApplicationController
+  include CheckoutHandler
+
   def new
     @cart = Checkout.where(id: session[:cart_id]).first
 
