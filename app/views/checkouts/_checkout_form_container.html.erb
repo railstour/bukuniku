@@ -80,6 +80,12 @@
     </div>
   </section>
 
+  <section class='form-frame order-summary'>
+    <h3>Item pembelian</h3>
+    <%= render "checkouts/summaries/items_summary", cart: @cart %>
+    <%= render "checkouts/summaries/billing_summary", cart: @cart %>
+  </section>
+
   <section class='form-frame'>
     <h3>Special note</h3>
     <div class='form-group'>
