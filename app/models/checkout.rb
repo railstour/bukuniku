@@ -3,6 +3,7 @@
 class Checkout < Order
   include ChargingParametersConcern
   include ChargingConcern
+  include PaymentConcern
 
   alias_attribute :checkout_gateway, :co_gateway
   alias_attribute :checkout_channel, :co_channel
