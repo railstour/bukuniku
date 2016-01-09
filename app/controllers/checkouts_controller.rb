@@ -36,6 +36,24 @@ class CheckoutsController < ApplicationController
   def index
   end
 
+  def callback
+    checkout_id = params.fetch(:order_id)
+    status_code = params.fetch(:status_code)
+    transaction_status = params.fetch(:transaction_status)
+
+    checkout = Checkout.for_user(current_user).where(co_id: checkout_id).first
+
+    if checkout &&
+        status_code.to_s == '200' &&
+        transaction_status.to_s.downcase == 'capture'
+      checkout.update_status(Checkout::STATUS_PAYMENT_RECEIVED)
+      redirect_to root_path, notice: "Your payment have been received"
+    else
+      checkout.update_status(Checkout::STATUS_WAITING_PAYMENT)
+      redirect_to root_path, alert: "Cannot process your payment"
+    end
+  end
+
   private
 
   def get_cart

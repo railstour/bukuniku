@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resource :reviews, only: [:create]
 
   resources :checkouts, only: [:index]
-  resource :checkout, only: [:new, :create]
+  resource :checkout, only: [:new, :create] do
+    get 'callback' => 'checkout#callback'
+  end
 end
