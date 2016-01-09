@@ -9,7 +9,11 @@ module CheckoutHandler
   KEY_PROD_ENVIRONMENT = :prodkey
   KEY_ENVIRONMENT = KEY_DEV_ENVIRONMENT
 
-  VeritransResult = Struct.new :redirect_url, :status_message, :status_code
+  VeritransResult = Struct.new :redirect_url, :status_message, :status_code do
+    def as_json
+      {ok: status_code.to_s == '200', message: status_message}
+    end
+  end
 
   private def define_base_url
     @vt_base_url = veritrans_base_url

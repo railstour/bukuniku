@@ -11,6 +11,26 @@ class CheckoutsController < ApplicationController
   end
 
   def create
+    @cart.set_charging_parameters(params)
+    @checkout_result = checkout(@cart.charging_parameters)
+
+    case @checkout_result.status_code.to_s
+    when '200'
+      @cart.update_status(Checkout::STATUS_PAYMENT_RECEIVED)
+      flash[:notice] = 'Your payment have been received.'
+    when '202'
+      @cart.update_status(Checkout::STATUS_WAITING_PAYMENT)
+      flash[:alert] = 'Your payment is rejected by the bank'
+    when '201'
+      @cart.update_status(Checkout::STATUS_WAITING_PAYMENT)
+      flash[:alert] = 'Your payment needs manual check, we will look at it'
+    else
+      fail "Unknown result code: #{@checkout_result.status_message}"
+    end
+  rescue => e
+    puts e.message
+  ensure
+    render json: @checkout_result.as_json
   end
 
   def index
