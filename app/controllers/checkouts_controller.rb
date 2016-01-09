@@ -1,9 +1,8 @@
 class CheckoutsController < ApplicationController
   include CheckoutHandler
+  before_action :get_cart, only: [:new, :create]
 
   def new
-    @cart = Checkout.where(id: session[:cart_id]).first
-
     if @cart
       render layout: 'plain'
     else
@@ -15,5 +14,11 @@ class CheckoutsController < ApplicationController
   end
 
   def index
+  end
+
+  private
+
+  def get_cart
+    @cart = Checkout.where(id: session[:cart_id]).first
   end
 end
