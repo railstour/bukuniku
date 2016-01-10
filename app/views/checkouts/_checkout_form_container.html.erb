@@ -1,6 +1,8 @@
 <h2>FORM CONTAINER</h2>
 
-<%= form_for @cart, url: checkout_path, method: :post do |f| %>
+<%= form_for @cart, url: checkout_path, method: :post, 
+  html: { class: 'form-checkout' } do |f| %>
+
   <section class='form-frame'>
     <h3>Informasi pembeli</h3>
     <div class='form-group'>
