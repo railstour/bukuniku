@@ -1,5 +1,10 @@
 <h2>FORM CONTAINER</h2>
 
+<script type='text/javascript'>
+  window.veritransBaseUrl = "<%= @vt_base_url %>"
+  window.veritransClientKey = "<%= @vt_client_key  %>"
+</script>
+
 <%= form_for @cart, url: checkout_path, method: :post, 
   html: { class: 'form-checkout' } do |f| %>
 
