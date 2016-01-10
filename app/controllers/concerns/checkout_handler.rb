@@ -3,6 +3,7 @@ module CheckoutHandler
 
   included do
     before_action :define_base_url
+    before_action :define_client_key, only: [:new]
   end
 
   KEY_DEV_ENVIRONMENT = :devkey

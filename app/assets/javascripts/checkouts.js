@@ -26,5 +26,38 @@ $(document).ready(function() {
       })
       return fields
     }
+
+    $("#checkout-form-container .form-checkout input[type='submit']")
+      .on("click", function(event) {
+        event.preventDefault()
+
+        formFields = getAllFormFields($(this).parent("form"))
+
+        Veritrans.token(card, function callback(response) {
+          if (response.status_code == '200') {
+            formFields['credit_card[token]'] = response.token_id 
+            $.ajax({
+              type: 'POST',
+              url: $("#checkout-form-container .form-checkout").attr("action"),
+              data: formFields,
+              beforeSend: function() {
+                console.log("Before send")
+              },
+              complete: function(e) {
+                console.log("Complete")
+                response = e.responseJSON
+                if (response.ok) {
+                  window.location = '/'
+                } else {
+                  alert("There is an error in checking out. Contact Admin")
+                }
+              }
+            })
+          } else {
+            alert("Error while processing payment")
+            console.log(JSON.stringify(response))
+          }
+        })
+      })
   }
 })
