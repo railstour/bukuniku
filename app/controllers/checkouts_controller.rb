@@ -11,8 +11,21 @@ class CheckoutsController < ApplicationController
   end
 
   def create
-    @cart.set_charging_parameters(params)
-    @checkout_result = checkout(@cart.charging_parameters)
+    begin
+      @cart.set_charging_parameters(params)
+      @cart.save!
+    rescue => e
+      puts "Error while updating cart: #{e.message}"
+    end
+
+    @checkout_result = checkout_direct(
+      @cart.charging_parameters.tap do |charging_params|
+        charging_params[:payment_type] = 'credit_card'
+        charging_params[:credit_card]= {
+          token_id: params[:credit_card][:token]
+        }
+      end
+    )
 
     case @checkout_result.status_code.to_s
     when '200'
@@ -29,6 +42,7 @@ class CheckoutsController < ApplicationController
     end
   rescue => e
     puts e.message
+    puts e.backtrace
   ensure
     render json: @checkout_result.as_json
   end
