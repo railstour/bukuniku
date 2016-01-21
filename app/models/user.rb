@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :written_reviews, foreign_key: :reviewer_id
+  has_many :written_reviews, foreign_key: :reviewer_id, class_name: Review
 
   validates_presence_of :name
   before_save :capitalize_name
