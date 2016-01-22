@@ -1,6 +1,13 @@
 /*
  *= require bootstrap.min
- *= require_tree .
+ *= require bootstrap-theme.min
+ *= require checkouts
+ *= require devise
+ *= require flash
+ *= require home_preview
+ *= require home
+ *= require review
+ *= require book
  *= require_self
  *= require jquery.rateyo.min.css
  *= require credit_card_field
