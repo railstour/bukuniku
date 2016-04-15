@@ -1,0 +1,7 @@
+form#user_signup_form, form#user_signin_form, form#user_reset_form,
+form#user_resend_conf_form, form#user_edit_form,
+form#user_change_password {
+
+  margin-top: 30px;
+
+}
